@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sri Vidya Sangeetha Nrithya Tarangini | Music & Dance Academy</title>
+    <!-- Google Fonts for Traditional Elegance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #5a0e1a; /* Deep Traditional Maroon */
+        --secondary-color: #d4af37; /* Radiant Gold */
+        --bg-light: #fffdf9; /* Soft Warm Cream */
+        --text-dark: #2b2625; /* Soft Charcoal */
+        --text-muted: #6b6260;
+        --white: #ffffff;
+        --card-shadow: 0 10px 30px rgba(90, 14, 26, 0.08);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+
+      /* Reusable Components */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-family: "Cinzel", serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "♦";
+        display: block;
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+        text-align: center;
+        margin-top: 5px;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        border-radius: 4px;
+        border: 2px solid var(--primary-color);
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      /* Navigation */
+      header {
+        background-color: var(--white);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-main {
+        font-family: "Cinzel", serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        letter-spacing: 1px;
+      }
+
+      .logo-sub {
+        font-size: 0.75rem;
+        color: var(--secondary-color);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+      }
+
+      /* Hero Section */
+      #hero {
+        background:
+          linear-gradient(rgba(90, 14, 26, 0.88), rgba(90, 14, 26, 0.88)),
+          url("https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1920&q=80")
+            no-repeat center center/cover;
+        color: var(--white);
+        padding: 140px 0 120px;
+        text-align: center;
+        border-bottom: 6px solid var(--secondary-color);
+      }
+
+      #hero h1 {
+        font-family: "Cinzel", serif;
+        font-size: 3.8rem;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      #hero .tagline {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 35px;
+        font-style: italic;
+        font-family: "Cinzel", serif;
+      }
+
+      #hero .motto {
+        max-width: 700px;
+        margin: 0 auto 40px;
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      /* About Guru */
+      .about-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-image {
+        position: relative;
+        border: 3px solid var(--secondary-color);
+        padding: 15px;
+        background: var(--white);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: sepia(10%) contrast(105%);
+      }
+
+      .guru-title {
+        font-family: "Cinzel", serif;
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 5px;
+      }
+
+      .guru-subtitle {
+        color: var(--secondary-color);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+
+      .bio-text {
+        margin-bottom: 25px;
+        color: var(--text-muted);
+      }
+
+      .credentials-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .credential-item {
+        background: var(--white);
+        padding: 15px;
+        border-left: 3px solid var(--secondary-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      }
+
+      .credential-item strong {
+        color: var(--primary-color);
+        display: block;
+        font-size: 0.95rem;
+      }
+
+      .credential-item span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      /* Services Section */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: var(--white);
+        padding: 40px 30px;
+        border-radius: 4px;
+        box-shadow: var(--card-shadow);
+        border-top: 4px solid var(--primary-color);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        border-top-color: var(--secondary-color);
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      .service-card h3 {
+        font-family: "Cinzel", serif;
+        color: var(--primary-color);
+        font-size: 1.35rem;
+        margin-bottom: 15px;
+      }
+
+      .service-card ul {
+        list-style: none;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .service-card ul li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 15px;
+      }
+
+      .service-card ul li::before {
+        content: "•";
+        color: var(--secondary-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+
+      .badge {
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 4px 30px;
+        transform: rotate(45deg);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Fee Structures */
+      .pricing-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .price-card {
+        background: var(--white);
+        border: 1px solid rgba(90, 14, 26, 0.1);
+        border-radius: 6px;
+        padding: 40px;
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+        box-shadow: var(--card-shadow);
+        position: relative;
+      }
+
+      .price-card.featured {
+        border: 2px solid var(--secondary-color);
+      }
+
+      .price-header h3 {
+        font-family: "Cinzel", serif;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .price-amount {
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        font-weight: 700;
+        margin: 20px 0;
+      }
+
+      .price-amount span {
+        font-size: 1rem;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      .price-features {
+        list-style: none;
+        margin-bottom: 30px;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        text-align: left;
+      }
+
+      .price-features li {
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+      }
+
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 50px;
+      }
+
+      .contact-info h3 {
+        font-family: "Cinzel", serif;
+        color: var(--primary-color);
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .info-icon {
+        font-size: 1.3rem;
+        color: var(--secondary-color);
+        margin-top: 3px;
+      }
+
+      .info-text h4 {
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .info-text p,
+      .info-text a {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      .contact-form {
+        background: var(--white);
+        padding: 40px;
+        box-shadow: var(--card-shadow);
+        border-radius: 4px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: var(--text-dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 40px 0;
+        text-align: center;
+        border-top: 4px solid var(--secondary-color);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      .footer-tagline {
+        font-family: "Cinzel", serif;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        #hero h1 {
+          font-size: 2.8rem;
+        }
+        .about-wrapper,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-image {
+          max-width: 400px;
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .pricing-wrapper {
+          flex-direction: column;
+          align-items: center;
+        }
+        .price-card {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo-container">
+            <span class="logo-main">Sri Vidya</span>
+            <span class="logo-sub">Sangeetha Nrithya Tarangini</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">The Guru</a></li>
+            <li><a href="#services">Programs</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <h1>Sri Vidya Sangeetha Nrithya Tarangini</h1>
+        <div class="tagline">Nurturing Talent. Inspiring Hearts.</div>
+        <p class="motto">
+          Rooted in Tradition, Moving with the Times. Immerse yourself in the
+          profound lineage of Indian Classical Arts under expert, certified
+          mentorship designed for all generations.
+        </p>
+        <div class="hero-buttons">
+          <a href="#admissions" class="btn">Explore Admissions</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Guru Section -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <h2 class="section-title">The Artistic Visionary</h2>
+        <div class="section-subtitle">
+          Meet our founder and primary educator
+        </div>
+
+        <div class="about-wrapper">
+          <div class="about-image">
+            <!-- Standard placeholder image structure - can be replaced on GitHub with personal photo -->
+            <img src="" alt="Vid. Bindu Raj N" />
+          </div>
+          <div class="about-content">
+            <h3 class="guru-title">Smt. Vid. Bindu Raj N</h3>
+            <div class="guru-subtitle">
+              Founder, Director & Government Examiner
+            </div>
+            <p class="bio-text">
+              Smt. Vid. Bindu Raj N is an accomplished dance and music educator
+              with over a decade of rich pedagogical experience spanning
+              classical arts and higher academic commerce instruction. As an
+              officially appointed Government Bharatanatyam Examiner, she brings
+              unparalleled academic rigor and standardized excellence directly
+              to the classroom.
+            </p>
+            <p class="bio-text">
+              Her teaching philosophy seamlessly balances technical mastery with
+              holistic development, encouraging pupils to find their expressive
+              voice while respecting centuries-old classical traditions.
+            </p>
+
+            <div class="credentials-grid">
+              <div class="credential-item">
+                <strong>Vidwat in Bharatanatyam</strong>
+                <span>KSEEB Board Certified</span>
+              </div>
+              <div class="credential-item">
+                <strong>Junior Cert. in Carnatic Music</strong>
+                <span>KSEEB Board Certified</span>
+              </div>
+              <!-- <div class="credential-item">
+                            <strong>Master of Commerce (M.Com)</strong>
+                            <span>University of Mysore</span>
+                        </div> -->
+              <div class="credential-item">
+                <strong>Prestigious Titles</strong>
+                <span>"Nrithya Milinda" & "Kannada Natya Rani"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services / Programs Section -->
+    <section
+      id="services"
+      class="section-padding"
+      style="background-color: #fdf9f3"
+    >
+      <div class="container">
+        <h2 class="section-title">Our Comprehensive Training</h2>
+        <div class="section-subtitle">
+          Immersive foundational and professional certification tracks
+        </div>
+
+        <div class="services-grid">
+          <!-- Program 1 -->
+          <div class="service-card">
+            <div class="service-icon">💃</div>
+            <h3>Bharatanatyam Practical Core</h3>
+            <p style="color: var(--text-muted); margin-bottom: 15px">
+              Ages 3+ years welcome. Structured physical training covering
+              foundational and advanced performance repertoires.
+            </p>
+            <ul>
+              <li>Foundational Adavu Systems</li>
+              <li>Mudras & Abhinaya Articulation</li>
+              <li>Margam Choreography Mastery</li>
+              <li>Festival & Competitive Preparedness</li>
+            </ul>
+          </div>
+
+          <!-- Program 2 -->
+          <div class="service-card">
+            <div class="service-icon">🎤</div>
+            <h3>Classical & Devotional Vocal</h3>
+            <p style="color: var(--text-muted); margin-bottom: 15px">
+              Comprehensive vocal formatting prioritizing pitch precision,
+              rhythm execution, and emotional expression.
+            </p>
+            <ul>
+              <li>Carnatic Classical Music Basics</li>
+              <li>Bhavageete & Bhaktigeete</li>
+              <li>Devara Naama & Bhajans</li>
+              <li>Janapada & Deshabhakthi Geete</li>
+            </ul>
+          </div>
+
+          <!-- Program 3 (NEW FEATURE) -->
+          <div class="service-card">
+            <div class="badge">New</div>
+            <div class="service-icon">📚</div>
+            <h3>Examination Theory Prep</h3>
+            <p style="color: var(--text-muted); margin-bottom: 15px">
+              Rigorous theoretical modules aligned directly with formal state
+              board criteria.
+            </p>
+            <ul>
+              <li>KSEEB Syllabus Compliant</li>
+              <li>Junior, Senior, & Vidwat Levels</li>
+              <li>
+                <strong>Flexible Delivery:</strong> Online & Offline Tracks
+              </li>
+              <li>Shloka Recitations & History Studies</li>
+            </ul>
+          </div>
+
+          <!-- Program 4 (NEW FEATURE) -->
+          <div class="service-card">
+            <div class="badge">New</div>
+            <div class="service-icon">🎶</div>
+            <h3>Vocal Accompaniment Services</h3>
+            <p style="color: var(--text-muted); margin-bottom: 15px">
+              Professional musical collaboration meticulously tailored for
+              official milestones and presentations.
+            </p>
+            <ul>
+              <li>Live Exam Singing Support</li>
+              <li>All Levels Covered (Junior to Vidwat)</li>
+              <li>Precise Tala & Raga Alignment</li>
+              <li>Custom Recorded Tracks Available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admissions & Pricing Section -->
+    <section id="admissions" class="section-padding">
+      <div class="container">
+        <h2 class="section-title">Enrollment & Flexible Paths</h2>
+        <div class="section-subtitle">
+          Admissions Open Now! Join our weekly cohorts.
+        </div>
+
+        <div class="pricing-wrapper">
+          <!-- Card 1 -->
+          <div class="price-card">
+            <div class="price-header">
+              <h3>Offline Classes</h3>
+              <p>Music & Dance Practical Modules</p>
+            </div>
+            <div class="price-amount">₹1,000 <span>/ 8 Sessions</span></div>
+            <ul class="price-features">
+              <li>Per Subject (Dance or Music Separate)</li>
+              <li>In-person Personalized Feedback</li>
+              <!-- <li>Traditional Studio Atmosphere</li> -->
+              <li>Interactive Group Choreographies</li>
+            </ul>
+            <a
+              href="#contact"
+              class="btn"
+              style="width: 100%; text-align: center"
+              >Secure Slot</a
+            >
+          </div>
+
+          <!-- Card 2 -->
+          <div class="price-card featured">
+            <div class="badge" style="right: -20px; top: 10px">Popular</div>
+            <div class="price-header">
+              <h3>Online Classes</h3>
+              <p>Music & Specialized Theory</p>
+            </div>
+            <div class="price-amount">₹1,500 <span>/ 8 Sessions</span></div>
+            <ul class="price-features">
+              <li>Music Programs & KSEEB Theory Only</li>
+              <li>Live Highly-Interactive Formats</li>
+              <li>Access Anywhere Globally</li>
+              <li>Digital Learning Resources Included</li>
+            </ul>
+            <a
+              href="#contact"
+              class="btn"
+              style="width: 100%; text-align: center"
+              >Register Now</a
+            >
+          </div>
+        </div>
+
+        <p
+          style="
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 30px;
+            font-style: italic;
+          "
+        >
+          *Note: Advanced exam theory and custom vocal accompaniment project
+          rates can be requested directly via our desk.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="section-padding"
+      style="background-color: #fdf9f3"
+    >
+      <div class="container">
+        <h2 class="section-title">Begin Your Artistic Journey</h2>
+        <div class="section-subtitle">
+          Reach out to request custom schedules or registration assistance
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Get In Touch</h3>
+
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div class="info-text">
+                <h4>Offline Location</h4>
+                <p>
+                  BGS Layout, Near Jambusavari Dinne Bus Stop,<br />JP Nagar 8th
+                  Phase, Bangalore - 560076
+                </p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div class="info-text">
+                <h4>Call / WhatsApp for Admissions</h4>
+                <p><a href="tel:+919480089657">+91 94800 89657</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div class="info-text">
+                <h4>Email Address</h4>
+                <p>
+                  <a href="mailto:srividyamusicndanceacademy@gmail.com"
+                    >srividyamusicndanceacademy@gmail.com</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="name">Student / Parent Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  required
+                  placeholder="Enter full name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-control"
+                  required
+                  placeholder="Enter mobile number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="program">Program of Interest</label>
+                <select id="program" class="form-control">
+                  <option>Bharatanatyam Practical (Ages 3+)</option>
+                  <option>Carnatic & Devotional Vocal</option>
+                  <option>KSEEB Theory Prep (Junior/Senior/Vidwat)</option>
+                  <option>Vocal Exam Accompaniment Service</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Additional Notes / Inquiry Details</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Mention age, online/offline choice, or prior experience..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn" style="width: 100%">
+                Submit Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-tagline">
+          Let's create beautiful rhythms together!
+        </div>
+        <p>
+          &copy; 2026 Sri Vidya Sangeetha Nrithya Tarangini. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Simple Menu and Form Action Logic -->
+    <script>
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        if (navLinks.style.display === "flex") {
+          navLinks.style.display = "none";
+        } else {
+          navLinks.style.display = "flex";
+          navLinks.style.flexDirection = "column";
+          navLinks.style.position = "absolute";
+          navLinks.style.top = "70px";
+          navLinks.style.left = "0";
+          navLinks.style.width = "100%";
+          navLinks.style.backgroundColor = "#ffffff";
+          navLinks.style.padding = "20px";
+          navLinks.style.boxShadow = "0 10px 10px rgba(0,0,0,0.05)";
+        }
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        alert(
+          "Thank you for reaching out to Sri Vidya Sangeetha Nrithya Tarangini! We will review your inquiry details and connect back over your contact number shortly.",
+        );
+        document.querySelector("form").reset();
+      }
+    </script>
+  </body>
+</html>
